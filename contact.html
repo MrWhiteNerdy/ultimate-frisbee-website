@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<title>Contact</title>
+		<link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+		<script>
+			function validateForm() {
+				var firstName = document.forms["myForm"]["firstName"].value;
+				var lastName = document.forms["myForm"]["lastName"].value;
+				var email = document.forms["myForm"]["email"].value;
+				var message = document.forms["myForm"]["message"].value;
+				var rating = document.forms["myForm"]["rating"].value;
+				
+				if (firstName == null || firstName == "") {
+					alert("First Name must be filled out");
+					return false;
+				}
+				else if (lastName == null || lastName == "") {
+					alert("Last Name must be filled out");
+					return false;
+				}
+				else if (email == null || email == "") {
+					alert("Email must be filled out");
+					return false;
+				}
+				else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {  
+					alert("You have entered an invalid email address");
+					return false;
+				}
+				else if (message == null || message == "") {
+					alert("Message must be filled out");
+					return false;
+				}
+				else if (rating == null || rating == "") {
+					alert("Rating must be filled out");
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>This Is Ultimate</h1>		
+		</header>
+		<nav>
+			<img src="logo.png">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="media.html">Media</a></li>
+				<li><a href="famousplayers.html">Famous Players</a></li>
+				<li><a href="history.html">History</a></li>
+				<li><a href="rules.html">Rules</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+		<div class="wrapper">
+			<h1>Contact Me</h1>
+			<form name="myForm" id="myForm" method="get" action="http://markmurtha.com/csis128/readform.asp" target="_blank">
+				<label>First Name:<br><input type="text" name="firstName" id="firstName" class="input"></label><br>
+				<label>Last Name:<br><input type="text" name="lastName" id="lastName" class="input"></label><br>
+				<label>Email Address:<br><input type="email" name="email" id="email" class="input"></label><br>
+				<label>Message:<br><textarea cols="30" rows="3" name="message" id="message" class="input"></textarea></label><br>
+				<fieldset id="rating"><br>
+					<legend>Rate the site:</legend>
+					<input type="radio" name="rating" value="5">I love it<br>
+					<input type="radio" name="rating" value="4">I like it<br>
+					<input type="radio" name="rating" value="3">It's okay<br>
+					<input type="radio" name="rating" value="2">I don't like it<br>
+					<input type="radio" name="rating" value="1">I hate it<br>
+				</fieldset>
+				<input type="submit" class="button" value="Submit" onclick="return validateForm()">
+				<input type="reset" class="button">
+			</form>
+		</div>
+	</body>
+</html>
